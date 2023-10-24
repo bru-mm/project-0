@@ -1,0 +1,38 @@
+/* Custom styles for the entire app */
+
+/* Set the background color for the page */
+ion-content {
+  --ion-background-color: #f2f2f2;
+}
+
+/* Style the h1 heading */
+ion-title {
+  color: blue;
+}
+
+/* Style the p element */
+ion-card-title {
+  color: green;
+}
+
+/* Style the "Clique Aqui" button */
+ion-button {
+  --color: white;
+  --background: deepskyblue;
+  --padding-start: 10px;
+  --padding-end: 10px;
+}
+
+/* Style the section */
+ion-card {
+  --border-top: 1px solid grey;
+  --border-bottom: 1px solid grey;
+  margin-top: 20px;
+}
+
+/* Style the image */
+ion-img {
+  max-width: 25%;
+}
+
+/* Add any other custom styles for your components here */

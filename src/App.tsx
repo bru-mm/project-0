@@ -1,7 +1,21 @@
-import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import React, { useState } from 'react';
+
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonButton,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
+  IonImg,
+  setupIonicReact
+} from '@ionic/react';
+
+import './theme/App.css';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -24,19 +38,51 @@ import './theme/variables.css';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  const [imageURL, setImageURL] = useState('src/theme/logo.jpg');
+
+  const onClick = async () => {
+    try {
+      const response = await fetch('https://source.unsplash.com/random');
+      if (response.ok) {
+        const newImageURL = response.url;
+        setImageURL(newImageURL);
+      } else {
+        console.error('Error fetching image:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error fetching image:', error);
+    }
+  };
+
+  return (
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Bem-vindo ao Meu Site</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>Este é um parágrafo de exemplo.</IonCardTitle>
+          </IonCardHeader>
+        </IonCard>
+        <IonButton expand="full" color="primary" onClick={onClick}>
+          Clique Aqui
+        </IonButton>
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>Seção Importante</IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent>
+            <p>Esta é uma seção com conteúdo relevante.</p>
+          </IonCardContent>
+        </IonCard>
+        <IonImg src={imageURL} style={{ width: '25%' }} />
+      </IonContent>
+    </IonPage>
+  );
+};
 
 export default App;
