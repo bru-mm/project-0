@@ -15,6 +15,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 
+// TODO: Deletar esse App.css da pasta theme e distribuir o css que tem nele entre os arquivos de css dos containers
 import './theme/App.css';
 
 /* Core CSS required for Ionic components to work properly */
