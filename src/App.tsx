@@ -40,7 +40,7 @@ import './theme/variables.css';
 setupIonicReact();
 
 const App: React.FC = () => {
-  const [imageURL, setImageURL] = useState('src/theme/logo.jpg');
+  const [imageURL, setImageURL] = useState('src/assets/images/logo.jpg');
 
   const onClick = async () => {
     try {
