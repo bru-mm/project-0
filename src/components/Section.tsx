@@ -1,2 +1,34 @@
-// Esse componente vai ser uma section. Aqui vai estar tudo que ta na 'Secao Importante' atualmente
-// O bom de separar isso aqui do SectionContainer e que eu vou poder mudar o .css so dessa Section pra deixar o titulo dela preto
+import React from 'react';
+import {
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
+  IonImg,
+} from '@ionic/react';
+import './Section.css';
+
+interface SectionProps {
+  title: string;
+  imageURL: string;
+}
+
+const Section: React.FC<SectionProps> = ({ title, imageURL, children }) => {
+  return (
+    <div className="section" part="section">
+      <IonCard part="card">
+        <IonCardHeader>
+          <IonCardTitle part="card-title">
+            <strong>{title}</strong>
+          </IonCardTitle>
+        </IonCardHeader>
+        <IonCardContent part="content">
+          <p>{children}</p>
+          <IonImg src={imageURL} part="image" />
+        </IonCardContent>
+      </IonCard>
+    </div>
+  );
+};
+
+export default Section;

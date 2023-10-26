@@ -1,0 +1,23 @@
+/* Section.css */
+.section::part(section) {
+  background-color: #f2f2f2;
+  font-family: "Arial";
+}
+
+.section::part(card-title) {
+  color: black;
+}
+
+.section::part(content) {
+  color: green;
+}
+
+.section::part(card) {
+  --border-top: 1px solid grey;
+  --border-bottom: 1px solid grey;
+  margin-top: 20px;
+}
+
+.section::part(image) {
+  max-width: 25%;
+}
