@@ -1,23 +1,21 @@
-/* Section.css */
-.section::part(section) {
-  background-color: #f2f2f2;
+#section-card {
+	border: solid;
+  border-color: black;
+  border-width: 1px;
+}
+
+#section-title {
+	color: black;
+	font-family: "Arial";
+}
+
+#section-paragraph {
+  color: green;
   font-family: "Arial";
 }
 
-.section::part(card-title) {
-  color: black;
-}
-
-.section::part(content) {
-  color: green;
-}
-
-.section::part(card) {
-  --border-top: 1px solid grey;
-  --border-bottom: 1px solid grey;
-  margin-top: 20px;
-}
-
-.section::part(image) {
+#section-img {
   max-width: 25%;
+  /* border: solid; */
+  /* border-color: black; */
 }

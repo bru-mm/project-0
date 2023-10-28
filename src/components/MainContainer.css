@@ -1,17 +1,28 @@
-/* MainContainer.css */
-.container::part(container) {
+#main-container {
   background-color: #f2f2f2;
-  font-family: "Arial";
-  padding: 10px;
+  padding-top: 10px;
 }
 
-.container::part(paragraph) {
+#main-paragraph {
   color: green;
+  font-family: "Arial";
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
-.container::part(button) {
+#main-button {
   --color: white;
   --background: deepskyblue;
+  padding-right: 10px;
+  padding-left: 10px;
+  /*
   --padding-start: 10px;
   --padding-end: 10px;
+  */
 }
+
+/*
+#main-sections {
+	height: 100%;
+}
+*/
