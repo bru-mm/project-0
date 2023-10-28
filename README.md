@@ -1,0 +1,1 @@
+App híbrido usando React e Ionic
