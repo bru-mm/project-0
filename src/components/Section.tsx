@@ -15,18 +15,19 @@ interface SectionProps {
 
 const Section: React.FC<SectionProps> = ({ title, imageURL, children }) => {
   return (
-    <div className="section" part="section">
-      <IonCard part="card">
-        <IonCardHeader>
-          <IonCardTitle part="card-title">
+    <div>
+      <ion-card id="section-card">
+        <ion-card-header>
+          <ion-card-title id="section-title">
             <strong>{title}</strong>
-          </IonCardTitle>
-        </IonCardHeader>
-        <IonCardContent part="content">
-          <p>{children}</p>
-          <IonImg src={imageURL} part="image" />
-        </IonCardContent>
-      </IonCard>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+        	<p id="section-paragraph">{children}</p>
+          <br />
+          <ion-img id="section-img" src={imageURL} />
+        </ion-card-content>
+      </ion-card>
     </div>
   );
 };
