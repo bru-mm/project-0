@@ -12,7 +12,7 @@ const Home: React.FC = () => {
           </ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content fullscreen>
+      <ion-content>
         <MainContainer />
       </ion-content>
     </ion-page>

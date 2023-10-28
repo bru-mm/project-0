@@ -7,6 +7,7 @@ const MainContainer: React.FC = () => {
   const [countries, setCountries] = useState([]);
   
   useEffect(() => {
+  	// Faz um fetch em uma listagem com informações sobre países, e filtra só os nomes
   	const fetchAllCountries = async () => {
   		const jsonData = await fetch('https://restcountries.com/v3.1/all?fields=name')
   			.then((response) => response.json());
@@ -59,8 +60,8 @@ const MainContainer: React.FC = () => {
 		    {loading && <ion-img id="loading-img" src={"src/assets/images/loading.gif"} />}
       </div>
       <div id="main-sections-container">
-		    {sections.map((section, index) => (
-		      <Section key={index} title={section.title} imageURL={section.imageURL}>
+		    {sections.map((section) => (
+		      <Section title={section.title} imageURL={section.imageURL}>
 		        {section.description}
 		      </Section>
 		    ))}
