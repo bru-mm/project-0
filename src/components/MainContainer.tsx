@@ -25,6 +25,9 @@ const MainContainer: React.FC = () => {
 
   const [sections, setSections] = useState([firstSection]);
 
+	// Usado para mostrar um gif de carregando enquanto o fetch está sendo feito
+	const [loading, setLoading] = useState(false);
+
   const onClick = async () => {
   	// Gera uma seção com uma imagem aleatória, no contexto do tópico, e um Bacon Ipsum
   	const fetchRandomSection = async (topic) => {
@@ -38,17 +41,24 @@ const MainContainer: React.FC = () => {
 		};
   
   	const randomCountry = countries[Math.floor(Math.random() * countries.length)];
-  	const newSection = await fetchRandomSection(randomCountry);
+  	
+  	setLoading(true);
+  	const newSection = await fetchRandomSection(randomCountry)
+  		.finally(() => setLoading(false));
+    
     setSections((prevSections) => [newSection, ...prevSections]);
   };
 
   return (
     <div id="main-container">
       <p id="main-paragraph">Este é um parágrafo de exemplo.</p>
-      <ion-button onClick={onClick} id="main-button">
-        Clique Aqui
-      </ion-button>
-      <div id="main-sections">
+      <div id="main-button-container">
+		    <ion-button onClick={onClick} id="main-button">
+		      Clique Aqui
+		    </ion-button>
+		    {loading && <ion-img id="loading-img" src={"src/assets/images/loading.gif"} />}
+      </div>
+      <div id="main-sections-container">
 		    {sections.map((section, index) => (
 		      <Section key={index} title={section.title} imageURL={section.imageURL}>
 		        {section.description}
@@ -58,43 +68,5 @@ const MainContainer: React.FC = () => {
     </div>
   );
 };
-
-/*
-const MainContainer: React.FC = () => {
-  const [imageURL, setImageURL] = useState('src/assets/images/logo.jpg');
-
-	// TODO: Fazer uma lista HTML de Sections pra quando for clicado no botão, adiciona mais uma
-	//       Section com título e descrição sendo os dados da request mais a imagem aleatória  
-	// TODO: Talvez se eu adicionar mais um componente SectionList vai resolver esses problemas de
-	//       css. Tentar pesquisar os templates (criar um novo projeto pra ver) porque parece que
-	//       tinha um template que tinha um componente Item e um componente ItemList ou algo do
-	//       gênero.
-  const onClick = async () => {  
-    try {
-      const response = await fetch('https://source.unsplash.com/random');
-      if (response.ok) {
-        const newImageURL = response.url;
-        setImageURL(newImageURL);
-      } else {
-        console.error('Error fetching image:', response.statusText);
-      }
-    } catch (error) {
-      console.error('Error fetching image:', error);
-    }
-  };
-
-  return (
-    <div className="container" part="container">
-      <p part="paragraph">Este é um parágrafo de exemplo.</p>
-      <IonButton onClick={onClick} part="button">
-        Clique Aqui
-      </IonButton>
-      <Section title="Seção Importante" imageURL={imageURL}>
-        Esta é uma seção com conteúdo relevante.
-      </Section>
-    </div>
-  );
-};
-*/
 
 export default MainContainer;
