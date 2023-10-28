@@ -4,16 +4,18 @@ import './Home.css';
 
 const Home: React.FC = () => {
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Bem-Vindo ao Meu Site!</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
+    <ion-page>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title id="header-title">
+          	<strong>Bem-Vindo ao Meu Site!</strong>
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content fullscreen>
         <MainContainer />
-      </IonContent>
-    </IonPage>
+      </ion-content>
+    </ion-page>
   );
 };
 
