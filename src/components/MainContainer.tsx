@@ -60,8 +60,8 @@ const MainContainer: React.FC = () => {
 		    {loading && <ion-img id="loading-img" src={"src/assets/images/loading.gif"} />}
       </div>
       <div id="main-sections-container">
-		    {sections.map((section) => (
-		      <Section title={section.title} imageURL={section.imageURL}>
+		    {sections.map((section, index) => (
+		      <Section title={section.title} key={index} imageURL={section.imageURL}>
 		        {section.description}
 		      </Section>
 		    ))}
