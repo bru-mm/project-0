@@ -1,10 +1,10 @@
 #main-container {
-  background-color: #f2f2f2;
+  --background-color: #f2f2f2;
   padding-top: 10px;
 }
 
 #main-paragraph {
-  color: green;
+  --color: green;
   font-family: "Arial";
   padding-right: 10px;
   padding-left: 10px;
